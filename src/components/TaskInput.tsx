@@ -25,7 +25,7 @@ export const TaskInput = ({
     return (
         <>
             {label && (
-                <Text fontSize="xs" fontWeight="medium" color="gray.500">
+                <Text ml={3} fontSize="xs" fontWeight="medium" color="gray.500">
                     {label}{" "}
                     {required && <span style={{ color: "red" }}>*</span>}
                 </Text>

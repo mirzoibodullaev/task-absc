@@ -6,4 +6,9 @@ export interface FormValues {
     routineName: string;
     periodicity: string[];
     routineDescription: string;
+    deadline: {
+        date: Date | null;
+        time: Date | null;
+    };
+    file: File | null;
 }

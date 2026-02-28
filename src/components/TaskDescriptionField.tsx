@@ -30,7 +30,7 @@ export const TaskDescriptionField = ({
     return (
         <Stack gap="1">
             <Field.Root invalid={!!error} required={isRequired}>
-                <Field.Label fontSize="xs" color="gray.500">
+                <Field.Label ml={3} fontSize="xs" color="gray.500">
                     {label} {isRequired && <Field.RequiredIndicator />}
                 </Field.Label>
 
