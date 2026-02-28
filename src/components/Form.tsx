@@ -140,6 +140,7 @@ const Form = () => {
           control={control}
           render={({ field }) => (
             <MultiSelect
+              isClearable
               label="Указать тему"
               placeholder="Выберите тему"
               items={topics}
