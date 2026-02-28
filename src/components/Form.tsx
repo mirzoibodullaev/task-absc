@@ -6,7 +6,7 @@ import { MultiSelect } from "./MultiSelect";
 import { DateTimePicker } from "./DateTimePicker";
 import { FileUploader } from "./FileUploader";
 import AdditionalRoutineTask from "./AdditionalRoutineTask";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePerformers } from "../hooks/usePerformers";
 import { useTopics } from "../hooks/useTopics";
 import { useTags } from "../hooks/useTags";
@@ -26,7 +26,7 @@ const Form = () => {
   const { topics } = useTopics("");
   const { tags } = useTags("");
 
-  const { control, handleSubmit, reset } = useForm<FormValues>({
+  const { control, handleSubmit, reset, setValue } = useForm<FormValues>({
     defaultValues: {
       context: "",
       performers: [],
@@ -38,6 +38,12 @@ const Form = () => {
       deadline: { date: null, time: null },
     },
   });
+
+  useEffect(() => {
+    if (!isTeam) {
+      setValue("performers", []);
+    }
+  }, [isTeam, setValue]);
 
   const onSubmit = (data: FormValues) => {
     console.log("Form data:", data);
