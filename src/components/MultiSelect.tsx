@@ -21,12 +21,13 @@ export type SelectItem = {
 };
 
 interface MultiSelectProps {
+  items: SelectItem[];
   placeholder?: string;
+  isClearable?: boolean;
   label?: string;
   isMulti?: boolean;
   isRequired?: boolean;
   disabled?: boolean;
-  items: SelectItem[];
   value?: string[];
   search?: string;
   onSearchChange?: (value: string) => void;
@@ -89,6 +90,7 @@ export const MultiSelect = ({
   onSearchChange,
   onValueChange,
   error,
+  isClearable = false,
 }: MultiSelectProps) => {
   const MAX_VISIBLE = 2;
   const collection = useMemo(() => createListCollection({ items }), [items]);
@@ -150,7 +152,11 @@ export const MultiSelect = ({
               </HStack>
             )}
           </Select.Trigger>
+
           <Select.IndicatorGroup>
+            {isClearable && value.length > 0 && (
+              <Select.ClearTrigger onClick={() => onValueChange?.([])} />
+            )}
             <Select.Indicator />
           </Select.IndicatorGroup>
         </Select.Control>

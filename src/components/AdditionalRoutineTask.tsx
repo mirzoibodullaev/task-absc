@@ -50,6 +50,7 @@ const AdditionalRoutineTask = ({ control }: AdditionalRoutineTaskProps) => {
         }}
         render={({ field, fieldState }) => (
           <MultiSelect
+            isClearable
             isRequired
             label="Периодичность"
             placeholder="Выберите периодичность"
