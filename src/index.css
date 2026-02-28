@@ -1,0 +1,2 @@
+@import "tailwindcss";
+@layer chakra-reset, chakra-base, chakra-tokens, chakra-utilities, chakra-recipes;
